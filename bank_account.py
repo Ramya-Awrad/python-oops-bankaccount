@@ -13,11 +13,11 @@ class BankAccount:
     def withdraw(self, amount):
         if self.__balance >= amount:
             self.__balance -= amount
-            self.transactions.append(f"withdrawn {amount}")
-            print(f"withdrawn: {amount}")
+            self.transactions.append(f"Withdrawn {amount}")
+            print(f"Withdrawn: {amount}")
             print("Withdrawal successful")
         else:
-            print("insufficient balance")
+            print("Insufficient balance")
 
     def check_balance(self):
         print(f"Current balance: {self.__balance}")
@@ -26,51 +26,3 @@ class BankAccount:
         print("Transaction History")
         for t in self.transactions:
             print(t)
-
-
-accounts = {
-    "Ramya": BankAccount("Ramya", 5000, 1234),
-    "Renu": BankAccount("Renu", 8000, 4321)
-}
-
-name = input("Enter account holder name: ")
-pin = int(input("Enter PIN: "))
-
-if name in accounts and accounts[name].pin == pin:
-    account = accounts[name]
-    print("Login Successfull")
-else:
-    print("Invalid account or PIN")
-    exit()
-
-while True:
-    print("\n----- ATM MENU -----")
-    print("1. Check Balance")
-    print("2. Deposit")
-    print("3. Withdraw")
-    print("4. Transaction History")
-    print("5. Exit")
-
-    choice = int(input("Enter your choice: "))
-
-    if choice == 1:
-        account.check_balance()
-
-    elif choice == 2:
-        amount = int(input("Enter amount to deposit: "))
-        account.deposit(amount)
-        print("Deposit successful")
-
-    elif choice == 3:
-        amount = int(input("Enter withdrawn amount: "))
-        account.withdraw(amount)
-
-    elif choice == 4:
-        account.show_transactions()
-
-    elif choice == 5:
-        print("Thank you for using ATM")
-        break
-
-    else:
-        print("Invalid choice")
