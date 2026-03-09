@@ -27,7 +27,6 @@ python-oops-bankaccount
 ├── bank_account.py
 └── README.md
 
-
 ## Example Users
 
 The program includes two sample accounts:
